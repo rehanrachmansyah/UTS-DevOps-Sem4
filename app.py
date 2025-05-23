@@ -1,3 +1,4 @@
+#apk sederhana
 from flask import Flask
 
 app = Flask(__name__)
