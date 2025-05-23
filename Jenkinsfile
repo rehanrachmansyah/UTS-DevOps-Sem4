@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'python:3.11'
+        }
+    }
 
     stages {
         stage('Checkout') {
@@ -11,7 +15,7 @@ pipeline {
         stage('Build & Test') {
             steps {
                 sh 'pip install -r requirements.txt'
-                sh 'pytest || echo "Test failed!"'
+                sh 'pytest || echo "Test failed"'
             }
         }
 
